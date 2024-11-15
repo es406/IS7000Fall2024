@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTimes } from 'react-icons/fa'
 import Login from '../pages/user/Login';
-
+import SignUp from '../pages/user/signup';
 function Navbar() {
+  // nav is starting off false
   const [nav, setNav] = useState(false)
+  // so when user clicks the hamburger button, it goes from false(!nav) to true(nav)
   const handleClick = () => setNav(!nav)
   const [token, setToken] = useState(null);
-
   return (
     <>
       <nav className='flex justify-between p-5 items-center border-b bg-[#e7e7e7d1] nav'>
@@ -17,11 +18,18 @@ function Navbar() {
           <Link to='/'><li>Home</li></Link>
           <Link to='/markets'><li>Market Overview</li></Link>
           <Link to='/subscription'><li>Subscriptions</li></Link>
+          <Link to='/Subscriptionadminhome'><li>SubscriptionAdmin</li></Link>
           <Link to='/user'><li>User</li></Link>
           <Link to='/profile'><li>Profile</li></Link>
 
           <Link to='/wallet'><li>Wallet</li></Link>
           <Link to='/contact'><li>Contact Us</li></Link>
+
+          <Link to='/signup'><li>SignUp</li></Link>
+
+          <Link to='/batch'><li>Batch</li></Link>
+
+
         </ul>
         {/* Hamburger or Close Icon */}
         <div className=' md:hidden z-10' onClick={handleClick}>
@@ -38,16 +46,20 @@ function Navbar() {
           <Link to='/'><li className='hover:text-teal-700'>Home</li></Link>
           <Link to='/markets'><li className='hover:text-teal-700'>Market Overview</li></Link>
           <Link to='/subscription'><li className='hover:text-teal-700'>Subscriptions</li></Link>
+          <Link to='/Subscriptionadminhome'><li className='hover:text-teal-700'>Subscription Admin</li></Link>
+
           <Link to='/user'><li className='hover:text-teal-700'>User</li></Link>
           <Link to='/profile'><li className='hover:text-teal-700'>Profile</li></Link>
 
           <Link to='/wallet'><li className='hover:text-teal-700'>Wallet</li></Link>
           <Link to='/contact'><li className='hover:text-teal-700'>Contact Us</li></Link>
+          <Link to='/batch'><li className='hover:text-teal-700'>Batch</li></Link>
+          <Link to='/signup'><li className='hover:text-teal-700'>Signup</li></Link>
+
         </ul>
       </nav>
       {token == null ? <Login setToken={setToken} /> : null}
     </>
   )
 }
-
 export default Navbar
