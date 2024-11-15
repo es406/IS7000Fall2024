@@ -1,7 +1,7 @@
 import Header from './Header';
 import Footer from './Footer';
 import Digitalclock from './Digitalclock';
-import MarketInsights from './MarketInsights.jsx';
+import MarketInsights from './MarketInsights';
 
 
 function App() {
